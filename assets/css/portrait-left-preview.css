@@ -1,0 +1,61 @@
+.intro-portrait-left {
+  grid-template-columns: 116px minmax(0, 1fr);
+  grid-template-areas:
+    "title title"
+    "portrait copy";
+  column-gap: 20px;
+  row-gap: 12px;
+}
+
+.intro-portrait-left > h1 {
+  grid-area: title;
+  margin-bottom: 0;
+}
+
+.intro-portrait-left .portrait {
+  grid-area: portrait;
+  width: 116px;
+  max-width: 116px;
+  margin: 0;
+}
+
+.intro-portrait-left .intro-copy {
+  grid-area: copy;
+}
+
+.intro-portrait-left .intro-copy > p {
+  margin-bottom: 0;
+}
+
+@media (max-width: 680px) {
+  .intro-portrait-left {
+    grid-template-columns: 96px minmax(0, 1fr);
+    grid-template-areas:
+      "title title"
+      "portrait copy";
+    gap: 22px 18px;
+    text-align: left;
+  }
+
+  .intro-portrait-left .portrait {
+    width: 96px;
+    max-width: 96px;
+    margin: 0;
+  }
+
+  .intro-portrait-left .icon-row {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 470px) {
+  .intro-portrait-left {
+    grid-template-columns: 78px minmax(0, 1fr);
+    column-gap: 15px;
+  }
+
+  .intro-portrait-left .portrait {
+    width: 78px;
+    max-width: 78px;
+  }
+}

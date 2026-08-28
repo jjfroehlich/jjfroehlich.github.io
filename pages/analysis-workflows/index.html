@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Analysis workflows — Quantitative gene regulation</title>
+  <meta name="description" content="Interactive repository map of the ATAC-seq, scRNA-seq and MPRA workflows used to study quantitative transcription-factor responses in stem cells.">
+  <meta name="theme-color" content="#f2f5f0">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%230b6f6b'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-size='29' font-family='Georgia' font-weight='700' fill='white'%3EJJF%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wdth,wght@75..100,400..700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=20260816-10">
+  <link rel="stylesheet" href="workflow.css?v=20260826-30">
+</head>
+<body class="atlas-body">
+  <a class="skip-link" href="#workflow-map">Skip to workflow map</a>
+  <main class="atlas-shell">
+    <header class="atlas-header">
+      <nav class="atlas-breadcrumb" aria-label="Breadcrumb"><a href="../../index.html">Jonathan J. Froehlich</a><span aria-hidden="true">/</span><span>Quantitative gene regulation</span></nav>
+      <p class="atlas-title">Analysis workflows</p>
+      <span aria-hidden="true"></span>
+    </header>
+
+    <section class="atlas-workspace" aria-label="Interactive analysis workflow atlas">
+      <div class="diagram-shell" id="workflow-map">
+        <div class="lane-band lane-atac" aria-hidden="true"><span>ATAC-seq</span></div>
+        <div class="lane-band lane-scrna" aria-hidden="true"><span>scRNA-seq</span></div>
+        <div class="lane-band lane-mpra" aria-hidden="true"><span>MPRA</span></div>
+
+        <svg class="workflow-connections" aria-labelledby="connections-title connections-description" role="img">
+          <title id="connections-title">Code and data connections between analysis workflows</title>
+          <desc id="connections-description">A shared transcription-factor perturbation connects three experimental avenues. Each avenue has its own processing and analysis workflow, with selected ATAC, single-cell RNA and MPRA data products exchanged between repositories.</desc>
+          <defs>
+            <marker id="arrow-flow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L8 4L0 8Z"></path></marker>
+            <marker id="arrow-context" markerWidth="7" markerHeight="8" refX="6" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 4H2.5M2.5 1L5.5 4L2.5 7"></path></marker>
+          </defs>
+          <g class="connection-layer"></g>
+        </svg>
+
+        <button class="workflow-node node-calibration node-shared" type="button" data-node="calibration" aria-controls="workflow-detail" aria-expanded="false">
+          <strong>TF perturbation &amp; dose</strong><span class="node-steps">FACS · RT-qPCR</span>
+        </button>
+
+        <button class="workflow-node node-atac-reads" type="button" data-node="atac_reads" aria-controls="workflow-detail" aria-expanded="false">
+          <strong>Reads, peaks &amp; tracks</strong><span class="node-steps">alignment · QC · peak calling</span>
+        </button>
+        <button class="workflow-node node-atac-evidence" type="button" data-node="atac_evidence" aria-controls="workflow-detail" aria-expanded="false">
+          <strong>Response &amp; sequence evidence</strong><span class="node-steps">DiffBind · ChromBPNet · motifs</span>
+        </button>
+        <button class="workflow-node node-atac-integrate node-compound" type="button" data-node="atac_integrate" aria-controls="workflow-detail" aria-expanded="false">
+          <strong>Peak response &amp; grammar</strong><span class="node-steps">dose response · regulatory grammar</span>
+        </button>
+
+        <button class="workflow-node node-scrna-quant" type="button" data-node="scrna_quant" aria-controls="workflow-detail" aria-expanded="false">
+          <strong>Counts, multiplexing &amp; QC</strong><span class="node-steps">STARsolo · MULTI-seq · cell QC</span>
+        </button>
+        <button class="workflow-node node-scrna-response" type="button" data-node="scrna_response" aria-controls="workflow-detail" aria-expanded="false">
+          <strong>Expression dose response</strong><span class="node-steps">pseudobulk · DESeq2 · curves</span>
+        </button>
+        <button class="workflow-node node-scrna-programs node-compound" type="button" data-node="scrna_programs" aria-controls="workflow-detail" aria-expanded="false">
+          <strong>Gene programs &amp; motifs</strong><span class="node-steps">enrichment · promoters · alleles</span>
+        </button>
+
+        <button class="workflow-node node-mpra-design" type="button" data-node="mpra_design" aria-controls="workflow-detail" aria-expanded="false">
+          <strong>Library construction</strong><span class="node-steps">candidates · controls · oligo QC</span>
+        </button>
+        <button class="workflow-node node-mpra-count" type="button" data-node="mpra_count" aria-controls="workflow-detail" aria-expanded="false">
+          <strong>Barcode assignment &amp; counts</strong><span class="node-steps">CRE lookup · DNA/RNA matrices</span>
+        </button>
+        <button class="workflow-node node-mpra-analysis node-compound" type="button" data-node="mpra_analysis" aria-controls="workflow-detail" aria-expanded="false">
+          <strong>Activity &amp; dose response</strong><span class="node-steps">BCalm · curves · ATAC comparison</span>
+        </button>
+      </div>
+
+      <aside class="workflow-detail" id="workflow-detail" aria-label="Workflow details" aria-live="polite" hidden>
+        <nav class="detail-navigation" aria-label="Browse workflow nodes">
+          <button class="detail-previous" type="button" aria-label="Previous workflow">←</button>
+          <button class="detail-next" type="button" aria-label="Next workflow">→</button>
+        </nav>
+        <button class="detail-close" type="button" aria-label="Close workflow details">×</button>
+        <div class="detail-content"></div>
+      </aside>
+    </section>
+
+    <footer class="atlas-footer"><a href="../../index.html">← Back to the homepage</a></footer>
+  </main>
+
+  <div class="image-lightbox" role="dialog" aria-modal="true" aria-label="Expanded analysis output" hidden><button class="lightbox-close" type="button" aria-label="Close expanded figure">×</button><figure><img src="" alt=""><figcaption></figcaption></figure></div>
+  <noscript><p class="noscript-note">The complete workflow map remains visible. Enable JavaScript for node details.</p></noscript>
+  <script src="workflow.js?v=20260826-30"></script>
+</body>
+</html>
