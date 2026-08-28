@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-currently used to host html reports
-=======
 ## JJF - static personal website
 
 `index.html` ready to be served directly by GitHub Pages.
@@ -25,4 +22,3 @@ Inspired by:
 Link icons: 
 - [Font Awesome](https://fontawesome.com/)
 - [Academicons](https://jpswalsh.github.io/academicons/)
->>>>>>> 3dfa0cc (Publish website.)
