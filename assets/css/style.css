@@ -49,6 +49,30 @@ a {
   transition: color 120ms ease, background-color 120ms ease;
 }
 
+.underlined-links .page a:not(.icon-row > a):not(.footer-icon-group > a) {
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: #a5aaa6;
+  text-underline-offset: .16em;
+}
+
+.underlined-links .page a:not(.icon-row > a):not(.footer-icon-group > a):hover,
+.underlined-links .page a:not(.icon-row > a):not(.footer-icon-group > a):focus-visible {
+  background: transparent;
+  text-decoration-color: currentColor;
+}
+
+.underlined-links .publication-links,
+.underlined-links .publication-links:has(a:hover),
+.underlined-links .publication-links:has(a:focus-visible) {
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
 a:hover,
 a:focus-visible {
   color: #111;
