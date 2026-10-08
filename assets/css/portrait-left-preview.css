@@ -17,6 +17,8 @@
   width: 116px;
   max-width: 116px;
   margin: 0;
+  /* Match the visible capital letters below the first line's leading. */
+  padding-top: calc((1lh - 1cap) / 2);
 }
 
 .intro-portrait-left .intro-copy {

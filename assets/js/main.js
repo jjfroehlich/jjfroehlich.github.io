@@ -71,7 +71,30 @@ if (footerInfoControl && footerInfoToggle && footerInfo) {
     footerInfo.setAttribute("aria-hidden", String(!isOpen));
   };
 
-  footerInfoToggle.addEventListener("click", () => {
+  footerInfoControl.addEventListener("pointerenter", (event) => {
+    if (event.pointerType === "mouse") setFooterInfoOpen(true);
+  });
+
+  footerInfoControl.addEventListener("pointerleave", (event) => {
+    if (event.pointerType === "mouse" && !footerInfoToggle.matches(":focus-visible") && !footerInfo.contains(document.activeElement)) {
+      setFooterInfoOpen(false);
+    }
+  });
+
+  footerInfoControl.addEventListener("focusin", () => {
+    if (footerInfoToggle.matches(":focus-visible")) setFooterInfoOpen(true);
+  });
+
+  footerInfoControl.addEventListener("focusout", (event) => {
+    if (!footerInfoControl.contains(event.relatedTarget)) setFooterInfoOpen(false);
+  });
+
+  footerInfoToggle.addEventListener("click", (event) => {
+    // Mouse hover and keyboard focus already reveal the panel; touch toggles it.
+    if (event.pointerType === "mouse" || event.detail === 0) {
+      setFooterInfoOpen(true);
+      return;
+    }
     setFooterInfoOpen(footerInfoToggle.getAttribute("aria-expanded") !== "true");
   });
 
